@@ -17,7 +17,7 @@ class BuilderSpec extends ObjectBehavior
     {
     	// PHP_EOL is required so this test passes on Windows and Linux
     	$table = '| Tables   |      Are      |  Cool |' . PHP_EOL . 
-				 '|----------|:-------------:|------:|' . PHP_EOL .
+				 '|:---------|:-------------:|------:|' . PHP_EOL .
 				 '| col 1 is | left-aligned  | $1600 |' . PHP_EOL .
 				 '| col 2 is |   centered    |   $12 |' . PHP_EOL .
 				 '| col 3 is | right-aligned |    $1 |' . PHP_EOL;

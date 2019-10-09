@@ -11,7 +11,6 @@ class Builder implements Renderable
 
     protected $rows = [];
 
-
     /**
      * Set column headers
      *
@@ -130,8 +129,8 @@ class Builder implements Renderable
 
         foreach (array_merge([$this->headers], $this->rows) as $row) {
             for ($i = 0; $i < count($row); $i++) {
-                $iWidth = strlen((string)$row[$i]);
-                if (( ! array_key_exists($i, $widths)) || $iWidth > $widths[$i]) {
+                $iWidth = strlen((string) $row[$i]);
+                if ((!array_key_exists($i, $widths)) || $iWidth > $widths[$i]) {
                     $widths[$i] = $iWidth;
                 }
             }
@@ -142,7 +141,6 @@ class Builder implements Renderable
             return $width >= 3 ? $width : 3;
         }, $widths);
 
-
         return $widths;
     }
 
@@ -152,6 +150,10 @@ class Builder implements Renderable
         for ($i = 0; $i < count($widths); $i++) {
             $cell  = str_repeat('-', $widths[$i] + 2);
             $align = $this->columnAlign($i);
+
+            if ($align == 'L') {
+                $cell = ':' . substr($cell, 1);
+            }
 
             if ($align == 'C') {
                 $cell = ':' . substr($cell, 2) . ':';
@@ -177,6 +179,5 @@ class Builder implements Renderable
 
         return 'L';
     }
-
 
 }
